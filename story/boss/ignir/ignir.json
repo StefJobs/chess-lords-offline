@@ -1,0 +1,62 @@
+{
+ "frameWidth": 320,
+ "frameHeight": 320,
+ "boardTop": 180,
+ "tilesWide": 8,
+ "tilesHigh": 4,
+ "source": "tools/sylvestre/source/IGNIR_GPT_SHEET.png",
+ "anims": {
+  "IDLE": {
+   "frames": 10,
+   "fps": 7,
+   "loop": true
+  },
+  "RISE": {
+   "frames": 7,
+   "fps": 8,
+   "loop": false
+  },
+  "CHARGE": {
+   "frames": 4,
+   "fps": 7,
+   "loop": true
+  },
+  "ROAR": {
+   "frames": 6,
+   "fps": 9,
+   "loop": false
+  },
+  "ROARLOOP": {
+   "frames": 2,
+   "fps": 5,
+   "loop": true
+  },
+  "BREATH": {
+   "frames": 11,
+   "fps": 10,
+   "loop": false
+  },
+  "HURT": {
+   "frames": 9,
+   "fps": 12,
+   "loop": false
+  },
+  "DEFEAT": {
+   "frames": 9,
+   "fps": 8,
+   "loop": false
+  }
+ },
+ "fx": {
+  "fire": [
+   28,
+   56,
+   8
+  ],
+  "impact": [
+   56,
+   44,
+   8
+  ]
+ }
+}
