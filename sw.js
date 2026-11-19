@@ -12,7 +12,7 @@
  * Les musiques sont lues par un élément <audio> : les requêtes partielles (Range, indispensables à
  * Safari sur iPhone) reçoivent une réponse 206 découpée dans le fichier en cache.
  */
-const VERSION = '92160271702a';
+const VERSION = 'c4c51301a718';
 const CORE = ["index.html","vendor/phaser.min.js","fonts/fonts.css","manifest.webmanifest","offline-assets.json","icons/icon-192.png","icons/icon-512.png","icons/apple-touch-icon.png","fonts/Aladin.woff","fonts/Almendra-Bold.woff","fonts/CinzelDecorative-Bold.woff","fonts/GrenzeGotisch.woff","fonts/IMFellEnglishSC.woff","fonts/PirataOne.woff","fonts/PixelifySans.woff","fonts/YujiBoku.woff"];
 const CORE_CACHE = `cl-core-${VERSION}`;
 const ASSET_CACHE = 'cl-assets';
