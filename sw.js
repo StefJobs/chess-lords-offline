@@ -12,7 +12,7 @@
  * Les musiques sont lues par un élément <audio> : les requêtes partielles (Range, indispensables à
  * Safari sur iPhone) reçoivent une réponse 206 découpée dans le fichier en cache.
  */
-const VERSION = '3008b674591d';
+const VERSION = '411d6a99b09a';
 const CORE = ["index.html","vendor/phaser.min.js","fonts/fonts.css","manifest.webmanifest","offline-assets.json","icons/icon-192.png","icons/icon-512.png","icons/apple-touch-icon.png","fonts/Aladin.woff","fonts/Almendra-Bold.woff","fonts/CinzelDecorative-Bold.woff","fonts/GrenzeGotisch.woff","fonts/IMFellEnglishSC.woff","fonts/PirataOne.woff","fonts/PixelifySans.woff","fonts/YujiBoku.woff"];
 const CORE_CACHE = `cl-core-${VERSION}`;
 const ASSET_CACHE = 'cl-assets';
@@ -79,6 +79,13 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return; // la version hors ligne n'appelle aucun autre site
+  // téléchargement d'une ressource (« Télécharger » / « Mettre à jour ») : TOUJOURS depuis Internet,
+  // jamais depuis le cache — sinon un fichier modifié qui garde la même adresse serait relu à
+  // l'identique depuis le téléphone (ancienne version) au lieu d'être remplacé.
+  if (url.searchParams.has('cl-dl')) {
+    event.respondWith(fetch(request));
+    return;
+  }
   event.respondWith(
     (async () => {
       const cached = await lookup(request);
